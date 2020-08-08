@@ -149,3 +149,4 @@ REST_FRAMEWORK = {
 }
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 MEDIA_ROOT = '/media/'
+ALLOWED_HOSTS=['nanobox-4592.ondigitalocean.app','localhost']
