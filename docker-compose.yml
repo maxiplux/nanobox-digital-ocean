@@ -1,17 +1,21 @@
 version: '3.3'
 services:
-  #web:
-#    build: .
-#    container_name: apipostgress
-#    volumes:
-#    - ./composeexample:/code
-#    ports:
-#    - "8080:8080"
-#    links:
-#    - postgres
-#
-#    depends_on:
-#    - postgres
+  web:
+    #image:maxiplux/nanobox:latest
+    build: .
+    container_name: nano-box-django
+    environment:
+      DATABASE_NAME: postgres
+      DATABASE_USER: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_PASSWORD: postgres
+    ports:
+    - "8000:8000"
+    links:
+    - postgres
+    depends_on:
+    - postgres
 
   postgres:
     image: postgres
@@ -21,9 +25,6 @@ services:
       POSTGRES_PASSWORD: postgres
     ports:
     - "5432:5432"
-
-
-
 volumes:
   dbdata:
 # this compomse no has it https://thepracticaldeveloper.com/2017/12/11/dockerize-spring-boot/ , but  that exmaple is beautiful because implements scale
