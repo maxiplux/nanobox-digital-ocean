@@ -10,6 +10,6 @@ RUN mkdir static
 ADD ./nanobox /src
 RUN pip install -r requirements.pip
 RUN python manage.py collectstatic --noinput
-EXPOSE 8000
+EXPOSE 80
 #
-CMD python manage.py migrate;python manage.py loaddata  db.json;python manage.py runserver 0.0.0.0:8000
+CMD python manage.py migrate;python manage.py loaddata  db.json;python manage.py runserver 0.0.0.0:80
